@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Social Meta -->
+  <title>AURA LUXE — High-End Modern Living & Next-Gen Tech Artifacts</title>
+  <meta name="description" content="Discover AURA LUXE: Curated precision-engineered acoustic headphones, titanium smart wearables, custom mechanical keyboards, and minimalist everyday carry.">
+  <meta name="keywords" content="luxury tech, audio, titanium smartwatch, mechanical keyboard, designer desk setup, modern gadgets">
+  <meta name="author" content="AURA LUXE by Kushal">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AURA LUXE — Curated Flagship Tech Artifacts">
+  <meta property="og:description" content="High-end acoustic gear, luxury wearables, and designer desktop hardware with world-class user experience.">
+  <meta property="og:image" content="assets/aura_headphones.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       AUTHENTICATION GATEWAY PORTAL (Simple & Clean Sign In / Sign Up)
+       ======================================================================== -->
+  <div class="auth-gate-overlay" id="authGateOverlay">
+    <div class="auth-gate-backdrop" aria-hidden="true">
+      <div class="auth-orb auth-orb-cyan"></div>
+      <div class="auth-orb auth-orb-purple"></div>
+    </div>
+
+    <!-- Clean & Simple Login Card -->
+    <div class="auth-portal-card" id="authPortalCard" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <div class="auth-card-glow"></div>
+
+      <!-- Brand Header -->
+      <div class="auth-brand-block">
+        <div class="auth-brand-title">
+          <span class="auth-brand-symbol">▲</span>
+          <span class="auth-brand-name">AURA</span>
+          <span class="auth-brand-tag">LUXE</span>
+        </div>
+        <h2 class="auth-heading" id="authTitle">Sign In</h2>
+        <p class="auth-subheading" id="authSubtitle">Enter your username or email to continue.</p>
+      </div>
+
+      <!-- Segmented Tab Switcher -->
+      <div class="auth-tabs-wrapper">
+        <div class="auth-segmented-tabs" role="tablist">
+          <button type="button" class="auth-tab active" id="tabSignInBtn" role="tab" aria-selected="true" aria-controls="signInPanel">
+            Sign In
+          </button>
+          <button type="button" class="auth-tab" id="tabSignUpBtn" role="tab" aria-selected="false" aria-controls="signUpPanel">
+            Create Account
+          </button>
+        </div>
+      </div>
+
+      <!-- Feedback Alert Banner -->
+      <div class="auth-alert-banner" id="authAlertBanner" style="display: none;">
+        <span class="auth-alert-icon" id="authAlertIcon">⚠️</span>
+        <span class="auth-alert-text" id="authAlertText">Notification</span>
+      </div>
+
+      <!-- PANEL 1: SIGN IN FORM -->
+      <form class="auth-form-panel" id="signInPanel" novalidate>
+        <div class="auth-field-group">
+          <label for="loginEmailInput">Username or Email</label>
+          <div class="auth-input-container">
+            <svg class="auth-field-icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            <input type="text" id="loginEmailInput" class="auth-text-input" placeholder="Username or email address" autocomplete="username" required autofocus>
+          </div>
+        </div>
+
+        <div class="auth-field-group">
+          <label for="loginPasswordInput">Password</label>
+          <div class="auth-input-container">
+            <svg class="auth-field-icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+            <input type="password" id="loginPasswordInput" class="auth-text-input" placeholder="Enter your password" autocomplete="current-password" required>
+            <button type="button" class="auth-eye-btn" id="toggleLoginEyeBtn" aria-label="Toggle password visibility">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-action-btn" id="loginSubmitBtn">
+          <span>Sign In</span>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+
+        <div class="auth-footer-actions">
+          <button type="button" class="auth-guest-link" id="guestEntryBtn">
+            Continue as Guest Visitor →
+          </button>
+          <button type="button" class="auth-supabase-badge" id="authSupabaseTriggerBtn" title="Supabase Database & Auth Settings">
+            <span class="sb-indicator-dot" id="authSupabaseDot"></span>
+            <span>Supabase: <strong id="authSupabaseStatus">Connect</strong></span>
+          </button>
+        </div>
+      </form>
+
+      <!-- PANEL 2: SIGN UP / REGISTER FORM -->
+      <form class="auth-form-panel" id="signUpPanel" style="display: none;" novalidate>
+        <div class="auth-field-group">
+          <label for="regUsernameInput">Username</label>
+          <div class="auth-input-container">
+            <svg class="auth-field-icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            <input type="text" id="regUsernameInput" class="auth-text-input" placeholder="Choose a username" autocomplete="username" required>
+          </div>
+        </div>
+
+        <div class="auth-field-group">
+          <label for="regEmailInput">Email Address</label>
+          <div class="auth-input-container">
+            <svg class="auth-field-icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <input type="email" id="regEmailInput" class="auth-text-input" placeholder="Enter your email address" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="auth-field-group">
+          <label for="regPasswordInput">Password</label>
+          <div class="auth-input-container">
+            <svg class="auth-field-icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+            <input type="password" id="regPasswordInput" class="auth-text-input" placeholder="Create password (min. 4 characters)" autocomplete="new-password" required>
+            <button type="button" class="auth-eye-btn" id="toggleRegEyeBtn" aria-label="Toggle password visibility">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-action-btn" id="signUpSubmitBtn">
+          <span>Create Account</span>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Ambient Dynamic Glowing Orbs -->
+  <div class="ambient-glow-container" aria-hidden="true">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-highlight">
+        <span class="pulse-dot"></span>
+        <span>AURA PRIME DROP: Use code <strong>AURA20</strong> for 20% off all flagship acoustics</span>
+      </div>
+      <div class="announcement-links">
+        <span>Global Express Delivery (2-4 Days)</span>
+        <span style="opacity: 0.3;">|</span>
+        <select class="currency-select" id="currencySelector" aria-label="Select Currency">
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="INR">INR (₹)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" id="brandLogo">
+        <div class="logo-symbol">▲</div>
+        <div>
+          <span class="logo-text">AURA</span>
+          <span class="logo-badge">LUXE</span>
+        </div>
+      </a>
+
+      <!-- Smart Search Bar -->
+      <div class="nav-search">
+        <div class="search-input-wrapper">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input type="text" 
+                 id="searchInput" 
+                 class="search-input" 
+                 placeholder="Search acoustic, titanium, wearables..." 
+                 autocomplete="off"
+                 aria-label="Search catalog">
+          <button id="searchClearBtn" class="search-clear-btn" aria-label="Clear Search">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <!-- Live Autocomplete Dropdown -->
+        <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <!-- User Profile & Account Menu -->
+        <div class="nav-user-container" id="navUserContainer">
+          <button class="nav-user-btn" id="navUserBtn" title="Your Account" aria-label="User Account" aria-expanded="false">
+            <div class="user-avatar-badge" id="navUserAvatar">K</div>
+            <span class="user-greeting-name" id="navUserName">Kushal</span>
+            <svg class="user-chevron-icon" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <!-- Glassmorphic User Account Dropdown -->
+          <div class="user-dropdown-panel" id="userDropdownPanel" role="menu" aria-label="User Profile Menu">
+            <div class="user-dropdown-header">
+              <div class="dropdown-avatar" id="dropdownAvatar">K</div>
+              <div class="dropdown-meta">
+                <div class="dropdown-name" id="dropdownName">Kushal</div>
+                <div class="dropdown-email" id="dropdownEmail">kushal@auraluxe.com</div>
+                <span class="dropdown-tier-badge" id="dropdownTier">AURA VIP Founder</span>
+              </div>
+            </div>
+
+            <div class="dropdown-menu-divider"></div>
+
+            <div class="dropdown-menu-items">
+              <button class="dropdown-item-btn" id="dropdownBagBtn" role="menuitem">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                <span>My Shopping Bag</span>
+                <span class="dropdown-item-badge" id="dropdownBagCount">0</span>
+              </button>
+
+              <button class="dropdown-item-btn" id="dropdownWishlistBtn" role="menuitem">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+                <span>Saved Wishlist</span>
+                <span class="dropdown-item-badge" id="dropdownWishlistCount">0</span>
+              </button>
+
+              <button class="dropdown-item-btn" id="dropdownChatBtn" role="menuitem">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                </svg>
+                <span>AURA AI Concierge</span>
+                <span class="dropdown-online-dot" title="Online"></span>
+              </button>
+
+              <button class="dropdown-item-btn" id="dropdownSupabaseBtn" role="menuitem">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: #3ecf8e;">
+                  <path d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.233L2.2 12.604a.396.396 0 0 0 .316.642H12v8.958a.396.396 0 0 0 .716.233l9.084-12.441a.396.396 0 0 0-.438-.642z"/>
+                </svg>
+                <span>Database &amp; Auth (Supabase)</span>
+                <span class="supabase-status-pill" id="dropdownSupabaseStatus">Connect</span>
+              </button>
+            </div>
+
+            <div class="dropdown-menu-divider"></div>
+
+            <button class="dropdown-item-btn dropdown-logout-btn" id="dropdownLogoutBtn" role="menuitem">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+              </svg>
+              <span>Sign Out &amp; Lock Portal</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Supabase Cloud Sync Quick Button -->
+        <button class="btn-icon supabase-nav-btn" id="supabaseNavBtn" title="Supabase Database &amp; Auth Settings" aria-label="Supabase Cloud Settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.233L2.2 12.604a.396.396 0 0 0 .316.642H12v8.958a.396.396 0 0 0 .716.233l9.084-12.441a.396.396 0 0 0-.438-.642z"/>
+          </svg>
+          <span class="supabase-nav-dot" id="supabaseNavDot"></span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="btn-icon" id="themeToggleBtn" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+
+        <!-- Wishlist Indicator -->
+        <button class="btn-icon" id="wishlistToggleBtn" title="View Wishlist" aria-label="View Wishlist">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span class="badge-count" id="wishlistCountBadge" style="display: none;">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="btn-icon" id="cartToggleBtn" title="Shopping Bag" aria-label="Open Shopping Bag">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span class="badge-count" id="cartBadgeCount" style="display: none;">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Showcase Section -->
+  <section class="hero-section" id="heroSection">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Headline & Actions -->
+        <div class="hero-content">
+          <div class="hero-pill">
+            <span class="pulse-dot"></span>
+            <span>2026 FLAGSHIP ACOUSTICS & WEARABLES</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Design Meets Destiny. <br>
+            <span class="gradient-text">Curated for the Extraordinary.</span>
+          </h1>
+          
+          <p class="hero-desc">
+            A harmonious fusion of aerospace-grade titanium, lossless spatial acoustics, and minimalist ergonomics. Built without compromise for discerning creators and audiophiles.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#catalogSection" class="btn btn-primary" id="heroExploreBtn">
+              Explore Collection
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            <button class="btn btn-secondary" id="heroAddFeaturedBtn">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              Quick Bag Flagship
+            </button>
+          </div>
+
+          <!-- Hero Metrics -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-number">12.4K+</span>
+              <span class="metric-label">Verified Owners</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">4.9 / 5</span>
+              <span class="metric-label">Acoustic Score</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">3-Year</span>
+              <span class="metric-label">Aura Care Warranty</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3D Interactive Showcase Card -->
+        <div class="hero-visual">
+          <div class="hero-card-showcase" id="heroShowcaseCard">
+            
+            <!-- Hotspot Feature Badges -->
+            <div class="feature-hotspot hotspot-1">
+              <span class="pulse-dot"></span>
+              <span>45mm Graphene Transducers</span>
+            </div>
+            <div class="feature-hotspot hotspot-2">
+              <span class="pulse-dot"></span>
+              <span>55hr Continuous Reserve</span>
+            </div>
+
+            <div class="hero-image-wrapper">
+              <img src="assets/aura_headphones.jpg" alt="Aura Horizon Flagship Headphones" class="hero-product-img">
+            </div>
+
+            <div class="hero-card-details">
+              <div class="hero-product-meta">
+                <h3>Aura Horizon ANC</h3>
+                <p>Matte Obsidian &amp; Titanium</p>
+              </div>
+              <div class="hero-product-price">$349.00</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Propositions Banner -->
+  <section class="features-banner">
+    <div class="container">
+      <div class="features-banner-grid">
+        
+        <div class="feature-box">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Global Express Air</h4>
+            <p>Dispatched in 24h carbon-neutral</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>3-Year Aura Care</h4>
+            <p>No-questions replacement warranty</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+          </div>
+          <div>
+            <h4>30-Day Risk-Free Trial</h4>
+            <p>Full refund with complimentary return</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Titanium Engineering</h4>
+            <p>Grade 5 aerospace monoblock builds</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Product Catalog Section -->
+  <section class="catalog-section" id="catalogSection">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="catalog-header">
+        <span class="section-tag">Precision Hardware</span>
+        <div class="section-title-row">
+          <h2 class="section-title">The Master Collection</h2>
+          <span class="products-count-badge" id="productsCount">Showing 8 curated items</span>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-pills-wrapper" role="tablist">
+        <button class="category-pill active" data-category="all">
+          <span>All Items</span>
+          <span class="pill-count">8</span>
+        </button>
+        <button class="category-pill" data-category="audio">
+          <span>Audio &amp; Sound</span>
+          <span class="pill-count">2</span>
+        </button>
+        <button class="category-pill" data-category="wearables">
+          <span>Smart Wearables</span>
+          <span class="pill-count">2</span>
+        </button>
+        <button class="category-pill" data-category="desk">
+          <span>Desk &amp; Tech</span>
+          <span class="pill-count">3</span>
+        </button>
+        <button class="category-pill" data-category="gear">
+          <span>Everyday Carry</span>
+          <span class="pill-count">1</span>
+        </button>
+      </div>
+
+      <!-- Catalog Controls Toolbar -->
+      <div class="catalog-toolbar">
+        <div class="toolbar-left">
+          <!-- Price Range Slider -->
+          <div class="price-filter-group">
+            <label for="priceSlider">Price cap:</label>
+            <input type="range" id="priceSlider" class="price-slider" min="100" max="500" step="10" value="500">
+            <strong id="priceSliderVal">$500.00</strong>
+          </div>
+        </div>
+
+        <div class="toolbar-right">
+          <!-- Sorting Select -->
+          <div class="sort-select-wrapper">
+            <label for="sortSelect">Sort:</label>
+            <select id="sortSelect" class="custom-select" aria-label="Sort products">
+              <option value="featured">Featured Picks</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+              <option value="name">Alphabetical</option>
+            </select>
+          </div>
+
+          <!-- View Layout Toggle -->
+          <div class="view-layout-toggle">
+            <button class="view-btn active" id="viewGridBtn" title="Grid Layout">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+              </svg>
+            </button>
+            <button class="view-btn" id="viewListBtn" title="List Layout">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Products Grid (Injected via JS) -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Rendered by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Verified Client Reviews & Social Proof -->
+  <section class="reviews-section">
+    <div class="container">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto;">
+        <span class="section-tag">Tested by Architects</span>
+        <h2 class="section-title">Critical Acclaim</h2>
+        <p style="color: var(--text-secondary); margin-top: 8px;">
+          Trusted by over 12,000 industrial designers, software engineers, and creators in 40+ countries.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-rating">★★★★★</div>
+          <h3 class="review-title">"The acoustic precision is unmatched"</h3>
+          <p class="review-body">
+            "The Aura Horizon headphones completely redefined how I listen to music while designing. The build quality feels like a luxury timepiece, and the spatial stage feels practically infinite."
+          </p>
+          <div class="reviewer-profile">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80" alt="Elena Rostova" class="reviewer-avatar">
+            <div class="reviewer-meta">
+              <h5>Elena Rostova</h5>
+              <p>Industrial Designer • Berlin</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-rating">★★★★★</div>
+          <h3 class="review-title">"Best desk upgrade I've made in 5 years"</h3>
+          <p class="review-body">
+            "Between the Genesis custom keyboard and the Lumos light bar, my coding workstation feels like a futuristic spacecraft. Typing sound is pure perfection, zero eye fatigue."
+          </p>
+          <div class="reviewer-profile">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80" alt="Marcus Chen" class="reviewer-avatar">
+            <div class="reviewer-meta">
+              <h5>Marcus Chen</h5>
+              <p>Software Architect • San Francisco</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-rating">★★★★★</div>
+          <h3 class="review-title">"A mesmerizing centerpiece"</h3>
+          <p class="review-body">
+            "The floating speaker is the first thing every guest talks about when they enter my living room. Crisp, spatial acoustic clarity and hypnotic ambient lighting."
+          </p>
+          <div class="reviewer-profile">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&q=80" alt="Sophia Sterling" class="reviewer-avatar">
+            <div class="reviewer-meta">
+              <h5>Sophia Sterling</h5>
+              <p>Creative Director • London</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <span class="section-tag">Need Clarification?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>What is included in the 3-Year Aura Care Warranty?</span>
+            <svg class="faq-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            Every Aura product includes our complimentary 3-year warranty covering acoustic transducer wear, internal battery degradation, titanium shell manufacturing integrity, and rapid replacement shipping with zero deductible fees.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How fast does global shipping take?</span>
+            <svg class="faq-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            All orders placed before 3 PM UTC are dispatched on the same business day via DHL Express or FedEx Priority. Typical transit times are 2-3 days for North America &amp; Europe, and 3-5 days internationally.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I return an item if it doesn't match my setup?</span>
+            <svg class="faq-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            Yes! We offer a 30-Day Risk-Free In-Home Audition. If you are not completely enchanted by the acoustic quality or build ergonomics, simply print our prepaid return label for a 100% full refund.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are Aura devices compatible with Apple and Android ecosystems?</span>
+            <svg class="faq-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            Yes, our audio and wearable hardware supports universal cross-platform standards including Apple AAC &amp; Find My, LDAC high-resolution, Qualcomm aptX Adaptive, Windows Sonic, and Google Fast Pair.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter VIP Strip -->
+  <div class="container">
+    <div class="newsletter-strip">
+      <div class="newsletter-content">
+        <h3>Join the Aura Society</h3>
+        <p>Gain first access to limited artisan releases, acoustic tuning updates, and exclusive private member drops.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-primary">Join Society</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-symbol">▲</div>
+            <div>
+              <span class="logo-text">AURA</span>
+              <span class="logo-badge">LUXE</span>
+            </div>
+          </div>
+          <p>
+            Architecting the next horizon of personal audio, wearable biometrics, and desktop artistry. Designed in Zurich, engineered worldwide.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Twitter / X">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke-width="2"/><path stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/></svg>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="GitHub">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Hardware</h5>
+          <ul class="footer-links">
+            <li><a href="#catalogSection">Horizon Headphones</a></li>
+            <li><a href="#catalogSection">Chrono Smartwatch</a></li>
+            <li><a href="#catalogSection">Genesis Keyboard</a></li>
+            <li><a href="#catalogSection">Levitate Speaker</a></li>
+            <li><a href="#catalogSection">Nomad Carbon Pack</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Services &amp; Care</h5>
+          <ul class="footer-links">
+            <li><a href="#">Aura Care Warranty</a></li>
+            <li><a href="#">Order Tracking</a></li>
+            <li><a href="#">Acoustic Calibration</a></li>
+            <li><a href="#">Corporate Gifting</a></li>
+            <li><a href="#">Sustainability Report</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul class="footer-links">
+            <li><a href="#">Philosophy</a></li>
+            <li><a href="#">Materials &amp; Design</a></li>
+            <li><a href="#">Press Kit</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 AURA LUXE INC. Curated by Kushal. All rights reserved.</div>
+        <div class="payment-badges">
+          <span class="payment-badge">Apple Pay</span>
+          <span class="payment-badge">Google Pay</span>
+          <span class="payment-badge">Visa</span>
+          <span class="payment-badge">Mastercard</span>
+          <span class="payment-badge">Amex</span>
+          <span class="payment-badge">Crypto</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODALS, DRAWERS & INTERACTIVE OVERLAYS
+       ========================================================================= -->
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <div class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+      
+      <!-- Cart Header -->
+      <div class="cart-header">
+        <h3>
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          Your Shopping Bag
+        </h3>
+        <button class="modal-close-btn" id="closeCartBtn" aria-label="Close Shopping Bag" style="position: static;">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Free Shipping Meter -->
+      <div class="shipping-meter-box">
+        <div class="meter-text" id="shippingMeterText">
+          Add <strong>$150.00</strong> more to unlock <strong>FREE Express Shipping</strong>!
+        </div>
+        <div class="meter-progress-bar">
+          <div class="meter-progress-fill" id="shippingMeterFill"></div>
+        </div>
+      </div>
+
+      <!-- Items List -->
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- Injected via app.js -->
+      </div>
+
+      <!-- Empty Cart View -->
+      <div class="cart-empty-view" id="cartEmptyView">
+        <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+        </svg>
+        <h4>Your Shopping Bag is Empty</h4>
+        <p>Curate your sanctuary with flagship acoustic and desktop artifacts.</p>
+        <button class="btn btn-primary" onclick="document.getElementById('cartDrawerOverlay').classList.remove('active')">
+          Explore Artifacts
+        </button>
+      </div>
+
+      <!-- Cart Footer & Calculations -->
+      <div class="cart-footer" id="cartFooter">
+        
+        <!-- Promo Code Input -->
+        <div class="promo-code-box">
+          <input type="text" id="promoCodeInput" class="promo-input" placeholder="Coupon code (e.g. AURA20)">
+          <button class="btn btn-secondary" id="applyPromoBtn" style="padding: 0 18px;">Apply</button>
+        </div>
+
+        <!-- Quick 1-Click VIP Coupon Chips -->
+        <div class="cart-quick-coupons" id="cartQuickCoupons">
+          <span class="quick-coupon-label">VIP Offers:</span>
+          <button type="button" class="cart-coupon-chip" data-coupon="AURA20" title="Click to apply 20% discount">
+            <strong>AURA20</strong> <span>(-20%)</span>
+          </button>
+          <button type="button" class="cart-coupon-chip" data-coupon="FREESHIP" title="Click to unlock free express shipping">
+            <strong>FREESHIP</strong>
+          </button>
+        </div>
+
+        <div class="cart-breakdown">
+          <div class="breakdown-row">
+            <span>Subtotal</span>
+            <span id="cartSubtotal">$0.00</span>
+          </div>
+          <div class="breakdown-row discount-row" id="cartDiscountRow" style="display: none;">
+            <span>VIP Promo Discount</span>
+            <span id="cartDiscount">-$0.00</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Express Shipping</span>
+            <span id="cartShipping">$15.00</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Estimated Sales Tax (8%)</span>
+            <span id="cartTax">$0.00</span>
+          </div>
+          <div class="breakdown-row total-row">
+            <span>Estimated Total</span>
+            <span id="cartTotal" class="gradient-text">$0.00</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary checkout-btn" id="proceedToCheckoutBtn">
+          Proceed to Checkout
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Quick-View Product Modal -->
+  <div class="modal-overlay" id="quickViewOverlay">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-label="Product Quick View">
+      <button class="modal-close-btn" id="closeQuickViewBtn" aria-label="Close modal">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="quickview-layout">
+        <!-- Left: Image Preview -->
+        <div class="quickview-gallery">
+          <div class="quickview-main-img-box">
+            <img src="assets/aura_headphones.jpg" alt="" class="quickview-main-img" id="qvImage">
+          </div>
+        </div>
+
+        <!-- Right: Details & Buying Options -->
+        <div class="quickview-details">
+          <span class="quickview-category" id="qvCategory">Audio &amp; Sound</span>
+          <h2 class="quickview-title" id="qvTitle">Product Title</h2>
+          
+          <div class="quickview-pricing">
+            <span class="quickview-current-price" id="qvPrice">$0.00</span>
+            <span class="quickview-original-price" id="qvOriginalPrice">$0.00</span>
+          </div>
+
+          <div class="quickview-stock-alert" id="qvStock">
+            ● Only 4 units left in stock
+          </div>
+
+          <p class="quickview-desc" id="qvDescription">Product description copy.</p>
+
+          <div class="quickview-option-label">Choose Finish Variant</div>
+          <div class="quickview-colors-list" id="qvColorsList">
+            <!-- Injected by app.js -->
+          </div>
+
+          <div class="quickview-actions-row">
+            <div class="qty-stepper">
+              <button class="stepper-btn" id="qvMinusBtn">-</button>
+              <span class="stepper-val" id="qvQtyVal">1</span>
+              <button class="stepper-btn" id="qvPlusBtn">+</button>
+            </div>
+            
+            <button class="btn btn-primary" id="qvAddToCartBtn" style="flex: 1;">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+              </svg>
+              Add to Bag
+            </button>
+          </div>
+
+          <!-- Technical Specs Breakdown -->
+          <div class="quickview-specs-box">
+            <div class="quickview-option-label" style="margin-bottom: 12px;">Technical Specifications</div>
+            <div class="specs-grid" id="qvSpecsList">
+              <!-- Injected by app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Multi-Step Checkout Modal -->
+  <div class="modal-overlay" id="checkoutOverlay">
+    <div class="modal-container checkout-modal-container" role="dialog" aria-modal="true" aria-label="Checkout">
+      <button class="modal-close-btn" id="closeCheckoutBtn" aria-label="Close Checkout">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Steps Indicator -->
+      <div class="checkout-steps">
+        <div class="checkout-step active" id="stepIndicator1">
+          <span class="step-circle">1</span>
+          <span>Shipping</span>
+        </div>
+        <div class="checkout-step" id="stepIndicator2">
+          <span class="step-circle">2</span>
+          <span>Payment</span>
+        </div>
+        <div class="checkout-step" id="stepIndicator3">
+          <span class="step-circle">3</span>
+          <span>Confirmation</span>
+        </div>
+      </div>
+
+      <div class="checkout-content">
+        
+        <!-- Step 1: Shipping Details -->
+        <div id="checkoutStep1">
+          <h3 style="margin-bottom: 16px; font-family: var(--font-display);">Shipping Destination</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="chkFirstName">First Name</label>
+              <input type="text" id="chkFirstName" class="form-input" placeholder="First Name">
+            </div>
+            <div class="form-group">
+              <label for="chkLastName">Last Name</label>
+              <input type="text" id="chkLastName" class="form-input" placeholder="Last Name">
+            </div>
+            <div class="form-group form-full">
+              <label for="chkEmail">Email Address (for order tracking)</label>
+              <input type="email" id="chkEmail" class="form-input" placeholder="you@example.com">
+            </div>
+            <div class="form-group form-full">
+              <label for="chkAddress">Street Address</label>
+              <input type="text" id="chkAddress" class="form-input" placeholder="Street address, apartment, suite">
+            </div>
+            <div class="form-group">
+              <label for="chkCity">City</label>
+              <input type="text" id="chkCity" class="form-input" placeholder="City">
+            </div>
+            <div class="form-group">
+              <label for="chkPostal">Postal / ZIP Code</label>
+              <input type="text" id="chkPostal" class="form-input" placeholder="Postal / ZIP Code">
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="toPaymentStepBtn" style="width: 100%; padding: 14px;">
+            Continue to Payment
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Step 2: Payment Details -->
+        <div id="checkoutStep2" style="display: none;">
+          <h3 style="margin-bottom: 16px; font-family: var(--font-display);">Select Payment Method</h3>
+          
+          <div class="payment-methods-grid">
+            <div class="payment-method-card active">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+              </svg>
+              <span>Credit Card</span>
+            </div>
+            <div class="payment-method-card">
+              <span> Apple Pay</span>
+            </div>
+            <div class="payment-method-card">
+              <span>Google Pay</span>
+            </div>
+            <div class="payment-method-card">
+              <span>Crypto (USDT)</span>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group form-full">
+              <label for="chkCardNumber">Card Number</label>
+              <input type="text" id="chkCardNumber" class="form-input" placeholder="•••• •••• •••• ••••">
+            </div>
+            <div class="form-group">
+              <label for="chkCardExp">Expiry Date</label>
+              <input type="text" id="chkCardExp" class="form-input" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+              <label for="chkCardCvv">Security CVV</label>
+              <input type="password" id="chkCardCvv" class="form-input" placeholder="123" maxlength="4">
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 10px;">
+            <button class="btn btn-secondary" id="backToShippingBtn" style="padding: 14px 24px;">
+              Back
+            </button>
+            <button class="btn btn-primary" id="confirmOrderBtn" style="flex: 1; padding: 14px;">
+              Authorize &amp; Complete Order
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Order Confirmed Screen -->
+        <div id="checkoutStep3" style="display: none;">
+          <div class="order-success-screen">
+            <div class="success-icon-animation">
+              <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h3>Artifact Reserved!</h3>
+            <p style="color: var(--text-secondary); max-width: 440px; margin: 0 auto 20px;">
+              Your order has been authorized and dispatched to our Zurich acoustic laboratories for priority calibration.
+            </p>
+
+            <div class="order-receipt-card">
+              <div class="spec-row">
+                <span class="spec-key">Order Reference:</span>
+                <span class="spec-val" id="receiptOrderId">AURA-839210</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">Order Date:</span>
+                <span class="spec-val" id="receiptDate">Oct 24, 2026</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">Dispatch Target:</span>
+                <span class="spec-val" id="receiptEmail">kushal.tech@gmail.com</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">Courier Carrier:</span>
+                <span class="spec-val">DHL Express Worldwide Air</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">Estimated Delivery:</span>
+                <span class="spec-val" style="color: var(--accent-emerald);">2 Business Days</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="continueShoppingSuccessBtn" style="padding: 12px 32px;">
+              Return to Catalog
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Modal -->
+  <div class="modal-overlay" id="wishlistOverlay">
+    <div class="modal-container wishlist-modal-container" role="dialog" aria-modal="true" aria-label="Your Wishlist">
+      <div class="cart-header">
+        <h3>
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" style="color: #f43f5e;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          Your Saved Favorites
+        </h3>
+        <button class="modal-close-btn" id="closeWishlistBtn" aria-label="Close Wishlist" style="position: static;">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="wishlist-items-list" id="wishlistItemsList">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SUPABASE CLOUD DATABASE & AUTH CONFIGURATION MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="supabaseModalOverlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="supabaseModalTitle">
+    <div class="modal-container supabase-modal-container">
+      <div class="cart-header">
+        <div class="supabase-modal-title-wrap">
+          <div class="supabase-icon-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.233L2.2 12.604a.396.396 0 0 0 .316.642H12v8.958a.396.396 0 0 0 .716.233l9.084-12.441a.396.396 0 0 0-.438-.642z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="supabaseModalTitle" style="margin: 0; font-family: var(--font-display);">Supabase Cloud Integration</h3>
+            <p style="margin: 2px 0 0; font-size: 0.8rem; color: var(--text-muted);">Live PostgreSQL Database &amp; Cloud Authentication</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="closeSupabaseModalBtn" aria-label="Close Supabase Dialog" style="position: static;">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="supabase-modal-content">
+        <!-- Realtime Status Banner -->
+        <div class="supabase-status-banner" id="supabaseModalStatusBanner">
+          <div class="supabase-status-indicator-box">
+            <span class="supabase-live-dot" id="supabaseModalLiveDot"></span>
+            <div>
+              <div class="supabase-status-text" id="supabaseModalStatusTitle">Checking Connection...</div>
+              <div class="supabase-status-sub" id="supabaseModalStatusDesc">Enter your Supabase credentials or verify your database connection below.</div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" id="testSupabasePingBtn">
+            <span>Ping Server</span>
+          </button>
+        </div>
+
+        <!-- Configuration Form -->
+        <form id="supabaseConfigForm" class="supabase-config-form">
+          <div class="form-group">
+            <label for="sbProjectUrlInput">Supabase Project URL</label>
+            <input type="url" id="sbProjectUrlInput" class="form-input" placeholder="https://your-project.supabase.co" autocomplete="off" required>
+            <small class="field-hint">Found in Supabase Dashboard → Project Settings → API → Project URL</small>
+          </div>
+
+          <div class="form-group">
+            <label for="sbAnonKeyInput">Supabase Anon Public API Key</label>
+            <div class="auth-input-container" style="border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface-elevated);">
+              <input type="password" id="sbAnonKeyInput" class="auth-text-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..." autocomplete="off" required style="border: none;">
+              <button type="button" class="auth-eye-btn" id="toggleSbKeyEyeBtn" aria-label="Toggle Key Visibility">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+              </button>
+            </div>
+            <small class="field-hint">Found in Supabase Dashboard → Project Settings → API → anon / public key</small>
+          </div>
+
+          <div class="supabase-btn-row">
+            <button type="submit" class="btn btn-primary" id="saveSupabaseConfigBtn">
+              <span>Save &amp; Connect</span>
+            </button>
+            <button type="button" class="btn btn-secondary" id="seedProductsToSupabaseBtn">
+              <span>⚡ Seed Products to DB</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Quick Migration Helper -->
+        <div class="supabase-migration-box">
+          <div class="migration-header">
+            <div>
+              <strong style="color: var(--accent-cyan); font-size: 0.88rem;">First Time Setup?</strong>
+              <div style="font-size: 0.76rem; color: var(--text-muted);">Run the SQL migration in your Supabase SQL Editor to create tables.</div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" id="copyMigrationSqlBtn">
+              <span>📋 Copy SQL Schema</span>
+            </button>
+          </div>
+          <div class="migration-file-note">
+            <span>A complete SQL script is saved in <code>supabase-schema.sql</code>.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       AURA AI CONCIERGE & SHOPPING ASSISTANT CHATBOT
+       ======================================================================== -->
+  <div class="aura-chat-root" id="auraChatRoot">
+    
+    <!-- Floating Launcher Trigger Button -->
+    <button class="aura-chat-launcher" id="auraChatLauncher" aria-label="Open AURA AI Concierge" title="Chat with AURA Concierge">
+      <div class="launcher-pulse-ring"></div>
+      <div class="launcher-inner-badge">
+        <svg class="launcher-ai-sparkle" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/>
+        </svg>
+      </div>
+      <span class="launcher-tooltip-tag">Ask AURA AI ✦</span>
+      <span class="launcher-unread-dot" id="chatUnreadDot"></span>
+    </button>
+
+    <!-- Glassmorphic Concierge Chat Panel -->
+    <div class="aura-chat-panel" id="auraChatPanel" role="region" aria-label="AURA Concierge Chat" aria-hidden="true">
+      
+      <!-- Chat Header -->
+      <div class="chat-header">
+        <div class="chat-header-profile">
+          <div class="chat-avatar-wrapper">
+            <span class="chat-avatar-icon">✦</span>
+            <span class="chat-online-pulse"></span>
+          </div>
+          <div class="chat-header-meta">
+            <div class="chat-title-row">
+              <h4>AURA Concierge</h4>
+              <span class="chat-pill-version">AI Assistant</span>
+            </div>
+            <p class="chat-status-text">Online • Private Shopping Advisor</p>
+          </div>
+        </div>
+
+        <div class="chat-header-actions">
+          <button class="chat-head-btn" id="chatSoundBtn" title="Toggle Sound Chimes" aria-label="Toggle Sound">
+            <svg class="sound-icon-on" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/>
+            </svg>
+          </button>
+          <button class="chat-head-btn" id="chatResetBtn" title="Clear Conversation" aria-label="Clear Chat History">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+            </svg>
+          </button>
+          <button class="chat-head-btn" id="chatCloseBtn" title="Minimize Chat" aria-label="Close Chat">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Suggested Prompt Chips -->
+      <div class="chat-suggestions-strip" id="chatSuggestionsStrip">
+        <button type="button" class="suggestion-chip" data-query="Recommend best flagship headphones">🎧 Best Headphones</button>
+        <button type="button" class="suggestion-chip" data-query="What discount coupons are active?">🏷️ Promo Codes</button>
+        <button type="button" class="suggestion-chip" data-query="Smartwatch technical specifications">⌚ Watch Specs</button>
+        <button type="button" class="suggestion-chip" data-query="How fast is delivery and shipping?">🚚 Shipping Times</button>
+        <button type="button" class="suggestion-chip" data-query="Show me products under $200">💰 Under $200</button>
+        <button type="button" class="suggestion-chip" data-query="Tell me about warranty and return policy">🛡️ Warranty &amp; Return</button>
+        <button type="button" class="suggestion-chip" data-query="What is currently in my shopping bag?">🛒 Check My Cart</button>
+      </div>
+
+      <!-- Message History Container -->
+      <div class="chat-messages-container" id="chatMessagesContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="chat-typing-indicator" id="chatTypingIndicator" style="display: none;">
+        <div class="typing-bubble">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+        </div>
+        <span class="typing-label">AURA AI is typing...</span>
+      </div>
+
+      <!-- User Chat Input Form -->
+      <form class="chat-input-form" id="chatInputForm">
+        <div class="chat-input-container">
+          <textarea 
+            id="chatUserInput" 
+            class="chat-textarea" 
+            placeholder="Ask about headphones, specs, delivery, coupons..." 
+            rows="1" 
+            aria-label="Message AURA Concierge"></textarea>
+          <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Navigation Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to Top" title="Back to Top">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Toast Notification Center -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Supabase CDN & Integration Modules -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
