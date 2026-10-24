@@ -305,4 +305,5 @@ ON CONFLICT (id) DO UPDATE SET
 GRANT USAGE ON SCHEMA public TO anon, authenticated;
 GRANT ALL ON TABLE public.profiles TO anon, authenticated;
 GRANT ALL ON TABLE public.products TO anon, authenticated;
-GRANT ALL ON TABLE public.orders TO anon, authenticated;
+GRANT ALL ON TABLE public.orders TO anon, authenticated; 
+--comment end 
